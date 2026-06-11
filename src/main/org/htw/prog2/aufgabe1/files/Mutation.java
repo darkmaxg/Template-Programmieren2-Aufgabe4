@@ -22,6 +22,15 @@ public class Mutation {
     }
 
     public String getSequence(String reference) {
-        return "";
+        StringBuilder newReference = new StringBuilder(reference);
+        String pattern = "(\\d+)([a-zA-Z])";
+        Pattern r = Pattern.compile(pattern);
+        Matcher m = r.matcher(variant);
+        while(m.find()){
+            int position = Integer.parseInt(m.group(1)) - 1;
+            char aminosaeure = m.group(2).charAt(0);
+            newReference.setCharAt(position, aminosaeure);
+        }
+        return newReference.toString();
     }
 }

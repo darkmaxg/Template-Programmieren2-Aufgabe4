@@ -26,6 +26,6 @@ public class SequenceFile implements HIVFile {
     }
 
     public boolean containsSequence(String sequence) {
-        return false;
+        return seqs.contains(sequence);
     }
 }
