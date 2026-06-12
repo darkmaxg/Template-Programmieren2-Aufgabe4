@@ -68,6 +68,10 @@ public class FullLengthSequenceAnalysis extends SequenceAnalysis{
         if(resistances.isEmpty()){
             calculateResistances();
         }
-        return "";
+        StringBuilder s = new StringBuilder();
+        for(Map.Entry<String, Double> set : resistances.entrySet()){
+            s.append(set.getKey()).append(": ").append(set.getValue()).append("\n");
+        }
+        return s.toString();
     }
 }
